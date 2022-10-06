@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Jasurbek Dev</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="basket-section">
+        <img src="./img/add-to-basket-3042.svg" alt="basket-icon" class="basket" width="40">
+        <span class="basket-span" value="0">0</span>
+      </div>
+    </nav>
+
+    <div class="sort-section d-flex">
+      <select class="form-select w-25 select" aria-label="Default select example">
+        <option selected disabled>Qiymat orqali sortlash</option>
+        <option value="small-to-big" class="option-1">1,2,3...9</option>
+        <option value="big-to-small" class="option-2">9,8,7...1</option>
+
+      </select>
+
+
+      <input type="text" class="form-control w-25 mx-3 input" placeholder="Yaxlitlash" aria-label="Username"
+        aria-describedby="basic-addon1">
+
+    </div>
+
+    <div class="modal  w-50 text-center align-items-center h-25 bg-secondary flex-column p-2">
+      <h2 class="text-center text-light">Reklama, Disklamer, Yana nmadirlaram qo'yvoruamiz</h2>
+      <button class="button m-4 ">Cancel</button>
+    </div>
+
+
+
+    <table class="table">
+      <thead class="thead">
+        <tr class="currency">
+          <th scope="col" class="currency-code">Kodi</th>
+          <th scope="col" class="currency-name">Nomi</th>
+          <th scope="col" class="currency-code-ab">Harf kodi</th>
+          <th scope="col" class="currency-sum">Qiymat</th>
+          <th scope="col" class="currency-data">Yangilangan sana</th>
+          <th scope="col" class="head-bookmark">Bookmark</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+
+
+        <img src="./img/ArtisticShoddyKudu.webp" alt="spiner" class="spiner-img w-25 ">
+      </tbody>
+    </table>
+  </div>
+  <script src="./bootstrap/js/bootstrap.js">
+  </script>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
