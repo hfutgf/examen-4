@@ -7,7 +7,32 @@ const select = document.querySelector('.select');
 
 const basketSpan = document.querySelector('.basket-span');
 
+let parseLocalStorage = localStorage.getItem('activeData');
+let dataLocal = JSON.parse(parseLocalStorage) || [];
 
+basketSpan.innerHTML = dataLocal.length;
+
+
+const dataId = async (id) => {
+  let parseDataLocal = localStorage.getItem('activeData');
+
+  let dataLocal = JSON.parse(parseDataLocal) || [];
+
+  console.log(dataLocal);
+  let findElement = dataLocal.find((elem) => elem == id);
+
+
+  if (findElement) {
+    let indexElement = dataLocal.findIndex((elem) => findElement == elem);
+    dataLocal.splice(indexElement, 1);
+  } else {
+    dataLocal = [...dataLocal, id]
+  }
+
+  localStorage.setItem('activeData', JSON.stringify(dataLocal));
+
+
+}
 
 ///////FETCH/////////////////////////////////////////
 async function getData(url) {
@@ -65,49 +90,67 @@ const renderData = (array) => {
     data.textContent = currency.Date
     tr.appendChild(data);
 
+
+    let parseLocalStorage = localStorage.getItem('activeData');
+    let dataLocal = JSON.parse(parseLocalStorage) || [];
+    let dataYes = dataLocal.find((element) => element == currency.id);
+
+
+
     const bookMarkOff = document.createElement('img');
     bookMarkOff.src = "./img/add-bookmark-icon.svg"
-    bookMarkOff.classList.add('off');
+
+    if (dataYes) {
+      bookMarkOff.classList.add('on')
+    } else {
+      bookMarkOff.classList.add('off')
+    }
+    bookMarkOff.setAttribute("data-id", currency.id);
     tr.appendChild(bookMarkOff);
 
     const bookMarkOn = document.createElement('img');
     bookMarkOn.src = "./img/bookmarkk.png"
-    bookMarkOn.classList.add('on');
+    bookMarkOn.setAttribute("data-id", currency.id);
+    if (dataYes) {
+      bookMarkOn.classList.add('off')
+    } else {
+      bookMarkOn.classList.add('on')
+    }
     tr.appendChild(bookMarkOn);
 
 
     ////////  BOOKMARK ///////////////////////////////////////////////
 
     bookMarkOff.addEventListener('click', (e) => {
+      dataId(e.target.dataset.id)
 
-      for (let i = 0; i < 1; i++) {
 
-        if (bookMarkOff.className = 'off' ) {
-          basketSpan.textContent++
-          bookMarkOff.classList.add('on');
-          bookMarkOff.classList.remove('off')
+      if (bookMarkOff.className = 'off') {
+        basketSpan.textContent++
+        bookMarkOff.classList.add('on');
+        bookMarkOff.classList.remove('off')
 
-          bookMarkOn.classList.add('off');
-          bookMarkOn.classList.remove('on');
-        }
+        bookMarkOn.classList.add('off');
+        bookMarkOn.classList.remove('on');
       }
+
     })
 
 
     bookMarkOn.addEventListener('click', (e) => {
+      dataId(e.target.dataset.id)
 
-      for (let i = 1; i > 0; i--) {
-        basketSpan.textContent--
-        if (bookMarkOn.className = 'off') {
+      basketSpan.textContent--
+      if (bookMarkOn.className = 'off') {
 
-          bookMarkOff.classList.remove('on');
-          bookMarkOff.classList.add('off')
+        bookMarkOff.classList.remove('on');
+        bookMarkOff.classList.add('off')
 
-          bookMarkOn.classList.remove('off');
-          bookMarkOn.classList.add('on');
+        bookMarkOn.classList.remove('off');
+        bookMarkOn.classList.add('on');
 
-        }
       }
+
     })
 
 
