@@ -18,7 +18,6 @@ const dataId = async (id) => {
 
   let dataLocal = JSON.parse(parseDataLocal) || [];
 
-  console.log(dataLocal);
   let findElement = dataLocal.find((elem) => elem == id);
 
 
